@@ -1,0 +1,263 @@
+2026-11-13 23:13:40,918 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+TOOLS_COUNT=56
+- list_workspaces: List available workspaces in GeoServer.
+- create_workspace: Create a new workspace in GeoServer.
+    
+    Args:
+        workspace: Name of the workspace to create
+    
+  
+- get_layer_info: Get detailed information about a layer.
+    
+    Args:
+        workspace: The workspace containing the layer
+ 
+- list_layers: List layers in GeoServer, optionally filtered by workspace.
+    
+    Args:
+        workspace: Optional workspa
+- create_layer: Create a new layer in GeoServer.
+    
+    Args:
+        workspace: The workspace for the new layer
+        lay
+- delete_resource: Delete a resource from GeoServer.
+    
+    Args:
+        resource_type: Type of resource to delete (workspace,
+- query_features: Query features from a vector layer using CQL filter.
+    
+    Args:
+        workspace: The workspace containin
+- generate_map: Generate a map image using WMS GetMap.
+    
+    Args:
+        layers: List of layers to include (format: works
+- create_style: Create a new SLD style in GeoServer.
+    
+    Args:
+        name: Name for the style
+        sld: SLD XML cont
+- create_datastore: Create a new datastore in the given workspace.
+    
+    Args:
+        workspace (str): Name of the workspace t
+- create_featurestore: Create a new featurestore in the given workspace.
+    
+    Args:
+        workspace (str): Target workspace.
+  
+- create_gpkg_datastore: Create a GeoPackage (GPKG) datastore.
+    
+    Args:
+        workspace (str): Workspace name.
+        name (st
+- create_shp_datastore: Create an ESRI Shapefile datastore.
+    
+    Args:
+        workspace (str): Workspace in GeoServer.
+        na
+- create_coveragestore: Create a new coveragestore in a workspace.
+    
+    Args:
+        workspace (str): Workspace name.
+        nam
+- delete_coveragestore: Delete a coveragestore from a workspace.
+    
+    Args:
+        workspace (str): Workspace name.
+        name 
+- get_coveragestore: Get details about a single coveragestore.
+    
+    Args:
+        workspace (str): Workspace.
+        name (str
+- get_coveragestores: Get all coveragestores in a workspace.
+    
+    Args:
+        workspace (str): Name of the workspace.
+    Retu
+- get_datastore: Get a specific datastore by name.
+    
+    Args:
+        workspace (str): Workspace name.
+        name (str): 
+- get_datastores: List all datastores in the given workspace.
+    
+    Args:
+        workspace (str): Workspace.
+    Returns:
+  
+- create_layergroup: Create a new layer group with specific layers and (optionally) styles.
+    
+    Args:
+        workspace (str):
+- get_layergroup: Get a layer group from a workspace.
+    
+    Args:
+        workspace (str): Workspace to search.
+        name 
+- get_layergroups: List all layer groups in a workspace.
+    
+    Args:
+        workspace (str): Workspace.
+    Returns:
+        
+- add_layer_to_layergroup: Add a specific layer to a layer group.
+    
+    Args:
+        layer_name (str): Layer to add.
+        layer_wo
+- remove_layer_from_layergroup: Remove a layer from a group.
+    
+    Args:
+        layer_name (str): Layer.
+        layer_workspace (str): La
+- delete_layergroup: Delete a layer group from a workspace.
+    
+    Args:
+        workspace (str): Workspace.
+        name (str): 
+- update_layergroup: Update a layer group's details and configuration.
+    
+    Args:
+        layergroup_name (str): The group to u
+- create_user: Create a new user for GeoServer security.
+
+    Args:
+        username (str): New user's name.
+        password
+- delete_user: Delete a user by name.
+    
+    Args:
+        username (str): User to remove.
+    Returns:
+        dict: Delet
+- get_all_users: List all users in the GeoServer instance.
+    
+    Returns:
+        list: Usernames or user info dicts.
+    
+- modify_user: Modify an existing user's properties (password, enabled state, properties, etc).
+    
+    Args:
+        userna
+- create_usergroup: Create a new user group.
+    
+    Args:
+        name (str): Name for the user group.
+        users (list, opti
+- delete_usergroup: Delete a user group.
+    
+    Args:
+        name (str): Name of group to remove.
+    Returns:
+        dict: Re
+- get_all_usergroups: Return all user groups.
+    
+    Returns:
+        list: Names or info dicts for all groups.
+    
+- publish_featurestore: Publish an existing featurestore.
+
+    Args:
+        workspace (str): Target workspace.
+        store_name (st
+- publish_featurestore_sqlview: Publish a featurestore using a SQL view definition.
+    
+    Args:
+        workspace (str): Workspace context.
+- edit_featuretype: Edit the settings of a feature type in a store.
+    
+    Args:
+        workspace (str): Workspace containing s
+- get_featuretypes: List all feature types in a given store.
+    
+    Args:
+        workspace (str): Workspace.
+        store_name
+- get_feature_attribute: Get feature attribute schema/details.
+    
+    Args:
+        workspace (str): Workspace.
+        store_name (s
+- get_manifest: Get GeoServer manifest metadata/details.
+    
+    Returns:
+        dict: Manifest metadata from GeoServer.
+   
+- get_status: Obtain general server status.
+    
+    Returns:
+        dict: Status/health report.
+    
+- get_system_status: Get system status overview/info from GeoServer.
+    
+    Returns:
+        dict: System info (CPU, memory, etc)
+- get_version: Fetch GeoServer version string.
+    
+    Returns:
+        str: GeoServer version.
+    
+- reload_geoserver: Reload catalog and config from disk.
+    
+    Returns:
+        str: Result message from reload.
+    
+- reset_geoserver: Reset all GeoServer caches/connections.
+    
+    Returns:
+        str: Result message from reset operation.
+  
+- update_service: Update selected OGC service options.
+    
+    Args:
+        service (str): Service (e.g., 'wfs', 'wms').
+     
+- publish_time_dimension_to_coveragestore: Add or update a time dimension for a coverage store (for time series).
+
+    Args:
+        store_name (str, opt
+- publish_style: Assign/publish a style to a layer.
+
+    Args:
+        layer_name (str): The target layer.
+        style_name (
+- create_catagorized_featurestyle: Create a categorized style for features (polygon, line, point) using column values.
+
+    Args:
+        style_n
+- create_classified_featurestyle: Create a classified style for features using distinct column values/classes.
+
+    Args:
+        style_name (st
+- create_coveragestyle: Create a raster coverage style (colormap, ...)
+
+    Args:
+        style_name (str): Name for the style.
+      
+- create_outline_featurestyle: Create a simple outline-only style for features.
+
+    Args:
+        style_name (str): Style name.
+        outl
+- style_catagorize_xml: Generate SLD for categorized vector style (SVG fill/block display).
+    Args:
+        column_name (str): Colum
+- style_classified_xml: Get SLD XML for classified vector style.
+    Args:
+        style_name (str): Name of style.
+        column_nam
+- style_coverage_style_colormapentry: Generate color map entries for raster SLD.
+    Args:
+        color_ramp: List/dict of colors.
+        min_valu
+- style_coverage_style_xml: Generate XML for raster/coverage SLD.
+    Args:
+        color_ramp: Color ramp (list, dict...)
+        style_n
+- style_outline_only_xml: XML for outline-only style for a geometry.
+    Args:
+        color (str): Outline color (hex).
+        width (

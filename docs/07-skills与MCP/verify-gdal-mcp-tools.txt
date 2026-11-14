@@ -1,0 +1,35 @@
+
+
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│                                                                              │
+│                         ▄▀▀ ▄▀█ █▀▀ ▀█▀ █▀▄▀█ █▀▀ █▀█                        │
+│                         █▀  █▀█ ▄▄█  █  █ ▀ █ █▄▄ █▀▀                        │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                FastMCP 4.2.0                                 │
+│                            https://gofastmcp.com                             │
+│                                                                              │
+│                  🖥  Server:      GDAL-MCP, 4.2.0                             │
+│                  🚀 Deploy free: https://horizon.prefect.io                  │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+[11/13/26 22:51:47] INFO     Starting MCP server 'GDAL-MCP'     transport.py:241
+                             with transport 'stdio'                             
+TOOLS_COUNT=13
+- store_justification: Store an epistemic justification for later use. This tool is called after generating a methodological justific
+- raster_convert: Convert raster format with compression, tiling, and overview generation. USE WHEN: Need to change format (e.g.
+- raster_info: Inspect raster metadata using Python-native Rasterio. USE WHEN: Need to understand raster properties before pr
+- raster_query: Query raster data by spatial extent. USE WHEN: Need to extract a subset of a raster for analysis or downstream
+- raster_reproject: Reproject raster to new coordinate reference system with explicit resampling method (required). USE WHEN: Coor
+- raster_stats: Compute comprehensive statistics for raster bands including min/max/mean/std/median/percentiles and optional h
+- vector_buffer: Create buffer zones around vector geometries for proximity analysis. USE WHEN: Need to create zones of influen
+- vector_clip: Clip vector dataset by bounding box or mask geometry for spatial subsetting. USE WHEN: Need to extract feature
+- vector_convert: Convert vector dataset to different format with encoding control. USE WHEN: Need to migrate between formats (S
+- vector_info: Inspect vector dataset metadata using Python-native pyogrio (or fiona fallback). USE WHEN: Need to understand 
+- vector_query: Query vector data by spatial extent and optional filters. USE WHEN: Need to subset features by area and/or att
+- vector_reproject: Reproject vector dataset to new coordinate reference system. USE WHEN: Vector CRS doesn't match target project
+- vector_simplify: Simplify vector geometries to reduce complexity and file size for web display or generalization. USE WHEN: Nee

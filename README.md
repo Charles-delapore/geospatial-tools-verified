@@ -6,13 +6,14 @@
 
 - 微信公众号“地学万事屋”2026-10-01《总结了100个地学Python工具/模型/代码，直接喂给AI，爽完了！》（标题称 100 个，正文实际列出 133 条，含重复条目）
 - 扩展调研：复杂网络与优化、景观生态、地理人文福祉、复杂空间分析与相关性建模、地理信息可视化、skills 与 MCP
+- 期刊级科研绘图管线：54 篇顶刊抽样 → 8 条制图标准 + 可运行原型
 
 ## 核验方法
 
 - 逐个抓取 GitHub 仓库页面解析星标、许可证、归档状态与描述，再抓 commits Atom feed 取默认分支最近提交日期；异常值用 GitHub REST API 单独复核。
 - 22 个核心工具另做实际用例与社区评价调研；原文未给链接的 11 个工具全网追查。
-- 星标与提交时间为 **2026-11-14 快照**，不是实时值；GitHub 随时会变，长期引用请以仓库页面为准。
-- 本仓库只核验“仓库是否存在、是否维护、许可证是什么”以及重点工具的用例口碑，未对每个工具做安装实测；安装兼容性需使用前自行验证。
+- 星标与提交时间为 **2026-11-14 快照**，不是实时值。GitHub 随时会变，长期引用请以仓库页面为准。
+- 本仓库只核验“仓库是否存在、是否维护、许可证是什么”以及重点工具的用例口碑，**未对每个工具做安装实测**；安装兼容性需使用前自行验证。
 
 ## 主要结论
 
@@ -22,27 +23,46 @@
 
 ## 目录结构
 
-- `docs/`：核验报告与各域调研报告
-- `data/`：核验数据表（TSV）
+```
+docs/
+  00-总索引.md                    172 条目、六域调研总索引
+  01-微信文章133工具核验/          133 条完整核验报告
+  02-复杂网络与优化/               报告 + 星标/网络图
+  03-景观生态/                    报告 + 星标/合成测试图
+  04-地理人文福祉/                 报告 + 三张示例图
+  05-复杂空间分析与相关性建模/       报告 + 星标/时效图
+  06-地理信息可视化/               20 个可视化库的实测输出（png/html）
+  07-skills与MCP/                 8 个 MCP server 的工具清单核验
+  08-期刊级科研绘图管线/           8 条制图标准 + PyGMT/Cartopy 原型 + QA 清单
+  99-复活评估.md                  停更项目的分叉/复活判定
+```
 
-## 内容
+## 各域报告
 
-| 文件 | 说明 | 状态 |
-|---|---|---|
-| `docs/地学Python开源工具核验报告-20261114.md` | 微信文章 133 个工具的完整核验报告 | 已入库 |
-| `data/repos.tsv` | 133 条清单（序号、分类、名称、仓库） | 已入库 |
-| `data/repo_status.tsv` | 122 个有链接仓库的状态表 | 已入库 |
-| `data/use_cases.md` | 22 个核心工具的实际用例与社区评价 | 已入库 |
-| `data/nolink_findings.md` | 11 个无链接工具的追查结论 | 已入库 |
-| `docs/complex-networks-REPORT.md` | 复杂网络与优化调研 | 待入库 |
-| `docs/landscape-ecology-REPORT.md` | 景观生态调研 | 待入库 |
-| `docs/wellbeing-REPORT.md` | 地理人文福祉调研 | 待入库 |
-| `docs/spatial-analysis-REPORT.md` | 复杂空间分析与相关性建模调研 | 待入库 |
-| `docs/geovis-REPORT.md` | 地理信息可视化调研 | 待入库 |
-| `docs/skills-mcp-REPORT.md` | skills 与 MCP 调研 | 待入库 |
-| `docs/revival-assessment.md` | 停更库复活评估（分叉重发 vs 交 PR） | 待入库 |
-| `docs/README-index.md` | 五域总索引 | 待入库 |
+| 报告 | 内容 |
+|---|---|
+| [01 微信 133 工具核验](docs/01-微信文章133工具核验/地学Python开源工具核验报告-20261114.md) | 133 条工具的存在性、维护状态、许可证 |
+| [02 复杂网络与优化](docs/02-复杂网络与优化/REPORT.md) | NetworkX、igraph、graph-tool 等 |
+| [03 景观生态](docs/03-景观生态/REPORT.md) | PyLandStats、landscapemetrics 等 |
+| [04 地理人文福祉](docs/04-地理人文福祉/REPORT.md) | 可达性、2SFCA、健康地理 |
+| [05 复杂空间分析与相关性建模](docs/05-复杂空间分析与相关性建模/REPORT.md) | PySAL、空间计量、GWR |
+| [06 地理信息可视化](docs/06-地理信息可视化/REPORT.md) | 20 个库的实测输出 |
+| [07 skills 与 MCP](docs/07-skills与MCP/REPORT.md) | 8 个 MCP server 的工具清单 |
+| [08 期刊级科研绘图管线](docs/08-期刊级科研绘图管线/期刊级科研绘图管线报告-20261114.md) | 8 条标准 + 原型代码 |
+| [99 复活评估](docs/99-复活评估.md) | EFlowCalc、Bruges、aospy、PyTOPKAPI、rainymotion |
 
-## 联系
+## 配套仓库
 
-（待作者补充）
+- [`eflowcalc-ng`](https://github.com/Charles-delapore/eflowcalc-ng) — EFlowCalc 维护分叉（GPLv3，159 个指标）
+- [`bruges-ng`](https://github.com/Charles-delapore/bruges-ng) — bruges 维护分叉（Apache-2.0，numpy 2 兼容）
+
+## 局限与后续
+
+- 星标/提交日期是 2026-11-14 快照，不自动更新。
+- 未做逐工具安装实测；`pip install` 兼容性需按当前 Python/系统复核。
+- 原始 TSV 数据表（`repos.tsv`、`repo_status.tsv`、`use_cases.md`）尚未随本仓库发布；报告正文已包含核验结论。
+- 复现实验图片来自各报告目录，生成脚本随报告或在 `docs/08-.../prototype/` 中。
+
+## 许可
+
+报告与图表由作者整理，引用请注明本仓库与原始工具仓库。第三方工具的名称、商标与代码版权归各自作者所有。

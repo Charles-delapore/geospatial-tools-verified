@@ -1,0 +1,49 @@
+Traceback (most recent call last):
+  File "/home/hatch/workspace/goals/geography-open-source-tools-research/files/geography-research/skills-mcp/repos/qgis_mcp-jjsantos01/src/qgis_mcp/qgis_mcp_server.py", line 140, in <module>
+    mcp = FastMCP(
+          ^^^^^^^^
+TypeError: FastMCP.__init__() got an unexpected keyword argument 'description'
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/hatch/workspace/your_files/geography-research/skills-mcp/tmp/mcp_list2.py", line 15, in <module>
+  |     asyncio.run(main())
+  |   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+  |     return runner.run(main)
+  |            ^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+  |     return self._loop.run_until_complete(task)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+  |     return future.result()
+  |            ^^^^^^^^^^^^^^^
+  |   File "/home/hatch/workspace/your_files/geography-research/skills-mcp/tmp/mcp_list2.py", line 8, in main
+  |     async with stdio_client(params) as (r, w):
+  |   File "/usr/lib/python3.12/contextlib.py", line 231, in __aexit__
+  |     await self.gen.athrow(value)
+  |   File "/home/hatch/workspace/your_files/geography-research/skills-mcp/tmp/venv_mcp1x/lib/python3.12/site-packages/mcp/client/stdio/__init__.py", line 182, in stdio_client
+  |     async with (
+  |   File "/home/hatch/workspace/your_files/geography-research/skills-mcp/tmp/venv_mcp1x/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 871, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Exception Group Traceback (most recent call last):
+    |   File "/home/hatch/workspace/your_files/geography-research/skills-mcp/tmp/venv_mcp1x/lib/python3.12/site-packages/mcp/client/stdio/__init__.py", line 189, in stdio_client
+    |     yield read_stream, write_stream
+    |   File "/home/hatch/workspace/your_files/geography-research/skills-mcp/tmp/mcp_list2.py", line 9, in main
+    |     async with ClientSession(r, w) as s:
+    |   File "/home/hatch/workspace/your_files/geography-research/skills-mcp/tmp/venv_mcp1x/lib/python3.12/site-packages/mcp/shared/session.py", line 238, in __aexit__
+    |     return await self._task_group.__aexit__(exc_type, exc_val, exc_tb)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/hatch/workspace/your_files/geography-research/skills-mcp/tmp/venv_mcp1x/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 871, in __aexit__
+    |     raise BaseExceptionGroup(
+    | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+    +-+---------------- 1 ----------------
+      | Traceback (most recent call last):
+      |   File "/home/hatch/workspace/your_files/geography-research/skills-mcp/tmp/mcp_list2.py", line 10, in main
+      |     await s.initialize()
+      |   File "/home/hatch/workspace/your_files/geography-research/skills-mcp/tmp/venv_mcp1x/lib/python3.12/site-packages/mcp/client/session.py", line 183, in initialize
+      |     result = await self.send_request(
+      |              ^^^^^^^^^^^^^^^^^^^^^^^^
+      |   File "/home/hatch/workspace/your_files/geography-research/skills-mcp/tmp/venv_mcp1x/lib/python3.12/site-packages/mcp/shared/session.py", line 306, in send_request
+      |     raise McpError(response_or_error.error)
+      | mcp.shared.exceptions.McpError: Connection closed
+      +------------------------------------

@@ -1,0 +1,126 @@
+TOOLS_COUNT=125
+- ping: Check connectivity to the QGIS plugin server. Returns pong if connected.
+- diagnose: Run diagnostic checks on the QGIS MCP stack. Reports QGIS version, plugin/server version match, processing pro
+- list_qgis_instances: List the configured QGIS instances: name, host, port, reachability, and - for each reachable one - which QGIS 
+- get_qgis_info: Get QGIS version, profile path, and plugin count.
+- get_project_info: Get current project metadata: filename, title, CRS, layer count, and summary of layers.
+- load_project: Load a QGIS project from a .qgs/.qgz file path. Replaces the open project; unsaved changes to it are lost. Lay
+- create_new_project: Create a new empty QGIS project and save it to the given path. Replaces the open project; unsaved changes to i
+- save_project: Save the current project. Optionally specify a new path.
+- create_checkpoint: Snapshot the whole project (layers, styles, labels, layouts, map themes, variables, and the features of memory
+- list_checkpoints: List the project checkpoints: id, name, creation time, layer count.
+- restore_checkpoint: Put the project back as it was at a checkpoint: every change since, and any uncommitted edit, is discarded. Th
+- export_session: Every command that changed something in this QGIS since the plugin's server started (read-only calls left out)
+- get_layers: List layers in the current project with IDs, names, types, visibility, and type-specific info. Use limit/offse
+- add_vector_layer: Add a vector layer (shapefile, GeoJSON, GeoPackage, etc.) to the project.
+- add_raster_layer: Add a raster layer (GeoTIFF, etc.) to the project.
+- remove_layer: Remove a layer from the project by its layer ID. This is irreversible.
+- find_layer: Find layers by name pattern. Supports fnmatch wildcards (e.g. 'roads*') and substring matching.
+- create_memory_layer: Create a new in-memory vector layer. geometry_type: Point, LineString, Polygon, MultiPoint, MultiLineString, M
+- set_layer_visibility: Set a layer's visibility in the layer tree (show/hide on map).
+- zoom_to_layer: Zoom the map canvas to the full extent of the specified layer.
+- get_layer_features: Get features from a vector layer. Flat dicts: _fid + attributes at top level. expression filter (QGIS, e.g. "n
+- get_field_statistics: Compute aggregate statistics (count, sum, mean, min, max, stdev) for a numeric field. For non-numeric fields r
+- add_features: Add features to a vector layer. Each feature: {attributes: {field: value}, geometry_wkt: 'POINT(1 2)'}. geomet
+- update_features: Update feature attributes. updates: [{fid: 1, attributes: {field: value}}]. Returns count of updated features.
+- delete_features: Delete features by feature IDs or expression filter. Provide either fids (list of ints) or expression (string)
+- update_feature_geometry: Replace feature geometries. updates: [{fid: 1, geometry_wkt: 'POINT(1 2)'}]. WKT must be in the layer's CRS. I
+- start_editing: Open an edit session on a vector layer. Subsequent add/update/delete calls go to the undoable edit buffer inst
+- commit_edits: Commit the layer's edit buffer to the data source and close the edit session.
+- rollback_edits: Discard every uncommitted change on a layer and close the edit session.
+- get_edit_status: Edit state of a layer: editable, modified, undo/redo availability, and the counts of pending added/deleted/cha
+- undo_edits: Undo the last edit operations on a layer (its own undo stack). Returns how many steps were actually undone.
+- redo_edits: Redo previously undone edit operations on a layer.
+- select_features: Select features in a layer by expression or feature IDs.
+- get_selection: Get the current selection for a layer. Returns feature IDs and count.
+- clear_selection: Clear the selection on a layer.
+- set_layer_style: Set symbology. style_type: 'single' (one symbol), 'categorized' (unique values), 'graduated' (numeric ranges).
+- set_raster_style: Set raster symbology. style_type: 'singleband_pseudocolor' (color ramp over one band), 'singleband_gray', 'mul
+- get_canvas_extent: Get the current map canvas extent and CRS.
+- set_canvas_extent: Set the map canvas extent. Coordinates should be in the specified CRS (default: project CRS).
+- get_canvas_screenshot: Grab a fast screenshot of the current map canvas widget (no re-render). Returns the image inline. Much faster 
+- get_3d_screenshot: Capture an OPEN 3D Map View as an inline image. Reuses the open view's scene + camera, rendered via a print-la
+- get_raster_info: Get raster layer info: band count, dimensions, CRS, extent, per-band statistics, nodata values.
+- execute_processing: Execute a QGIS Processing algorithm. Use get_algorithm_help to discover parameters. Layer params accept layer 
+- start_processing_job: Run a Processing algorithm as a QGIS background task, with no time limit, and return its job id at once. QGIS 
+- get_processing_job: State of a background job: 'running' (with progress 0-100), 'succeeded' (with result, loaded_layers and warnin
+- cancel_processing_job: Ask a running background job to stop. Its state turns 'cancelled' once QGIS has stopped it; outputs it already
+- list_processing_algorithms: Search for processing algorithms by keyword and/or provider. Returns id, name, provider for each match.
+- get_algorithm_help: Get detailed help for a processing algorithm: parameters (name, type, optional, default), outputs, and descrip
+- create_processing_model: Build QGIS Processing Model (.model3) from structured spec; save to user models folder, register in Processing
+- list_processing_models: List registered Processing models (the 'model' provider). Returns id, name, group for each. Use run_model to e
+- run_model: Run a Processing model by registered id (e.g. 'model:myflow') or by a .model3 file path. 'parameters' maps the
+- get_processing_providers: List Processing providers (native, gdal, grass, saga, model, ...) with algorithm counts and active status. Use
+- execute_processing_batch: Run one algorithm once per parameter dict in 'parameters_list'. Returns a per-run result with index and succes
+- raster_calculator: Band math via the QGIS raster calculator. Reference loaded raster layers in the expression as 'LayerName@band'
+- zonal_statistics: Per-polygon stats from a raster (native:zonalstatisticsfb). stats int codes: 0=count 1=sum 2=mean 3=median 4=s
+- sample_raster_values: Sample raster pixel values at points. 'points' is a list of [x, y] in crs when given (reprojected to the raste
+- export_layer: Export vector/raster to disk; format from output_path extension (.gpkg, .shp, .geojson, .tif, ...). target_crs
+- field_calculator: Add (if missing) + populate a field from a QGIS expression, per feature, in-place. field_type: string|int|doub
+- get_unique_values: Return the distinct values of a field. Use 'limit' to cap results (-1 for all). Useful before building categor
+- spatial_join: Join attributes by location (native:joinattributesbylocation). predicates int list: 0=intersects 1=contains 2=
+- render_map: Render the current map canvas to an image. Returns the image inline so you can see it. Optionally saves to a f
+- execute_code: Execute arbitrary PyQGIS code. Use for operations not covered by other tools. Has access to QgsProject, iface,
+- get_active_layer: Get the currently active (selected) layer in the QGIS layer panel.
+- set_active_layer: Set the active layer in the QGIS layer panel by layer ID.
+- get_canvas_scale: Get the current map canvas scale, rotation, and magnification factor.
+- set_canvas_scale: Set the map canvas scale and/or rotation. Provide scale as denominator (e.g. 50000 for 1:50000). Rotation in d
+- get_layer_labeling: Get the labeling configuration of a vector layer: enabled state, field, font size, color.
+- set_layer_labeling: Configure labeling for a vector layer. Set enabled=false to disable labels. Set field_name to the attribute fi
+- get_layer_crs: Get the coordinate reference system (CRS) of a layer: EPSG code, description, whether geographic, and PROJ4 st
+- set_layer_crs: Set the CRS of a layer (e.g. 'EPSG:4326'). This does NOT reproject data - it only changes how the layer's coor
+- get_bookmarks: Get spatial bookmarks from the project. Each bookmark has a name, group, extent (xmin/ymin/xmax/ymax), and CRS
+- add_bookmark: Add a spatial bookmark to the project for quick navigation. Provide a name and extent (xmin/ymin/xmax/ymax), i
+- remove_bookmark: Remove a spatial bookmark by its ID.
+- get_map_themes: Get map themes (visibility presets). Each theme stores which layers are visible.
+- add_map_theme: Create a map theme from the current layer visibility state. If a theme with this name exists, it will be updat
+- remove_map_theme: Remove a map theme by name.
+- apply_map_theme: Apply a map theme - restores the layer visibility state saved in the theme.
+- set_project_crs: Set the project coordinate reference system (e.g. 'EPSG:4326', 'EPSG:3857'). This changes how layers are proje
+- batch_commands: Execute multiple commands in a single round-trip. Each command is {"type": "<command_name>", "params": {...}}.
+- list_layouts: List all print layouts in the current project with names and page counts.
+- export_layout: Export a print layout to file. format: 'pdf', 'png', 'jpg', 'svg'. dpi: resolution (default 300).
+- get_message_log: Get QGIS message log entries. Filter by level ('info', 'warning', 'critical', 'success', 'none') and/or tag (e
+- list_plugins: List installed QGIS plugins with name, enabled status, and version. Set enabled_only=true to list only active 
+- get_plugin_info: Get detailed info for a specific plugin: name, enabled, version, description, author, path.
+- reload_plugin: Reload a QGIS plugin by name. Cannot reload the MCP plugin itself. Useful during plugin development.
+- get_layer_tree: Get the full layer tree structure with groups and layers. Returns recursive tree with type, name, visibility, 
+- create_layer_group: Create a new layer group in the layer tree. Optionally specify a parent group name.
+- move_layer_to_group: Move a layer into a layer group by group name.
+- set_layer_property: Set a layer property. Supported properties: opacity (0.0-1.0), name (string), min_scale, max_scale (float), sc
+- get_layer_extent: Get the spatial extent (bounding box) and CRS of a layer.
+- get_project_variables: Get all project-level variables (key-value pairs set in Project Properties).
+- set_project_variable: Set a project-level variable. Variables are accessible in expressions as @key.
+- validate_expression: Validate a QGIS expression. Returns whether it's valid, any parse errors, and referenced column names. Optiona
+- get_setting: Read a QGIS setting by key path (e.g. 'qgis/sketching/sketching_enabled').
+- set_setting: Write a QGIS setting. Use with care - incorrect settings can affect QGIS behavior.
+- transform_coordinates: Transform coordinates between CRS. Accepts a point {x, y}, a point list [{x, y}, ...], or a bbox {xmin, ymin, 
+- list_connections: List the data source connections saved in QGIS (PostgreSQL, GeoPackage, SpatiaLite, MS SQL, Oracle, ...) - the
+- create_postgresql_connection: Validate and save a new PostgreSQL Browser-panel connection. Passwords are never accepted: credentials come fr
+- list_connection_tables: List tables reachable through a saved connection. On providers with schemas (PostgreSQL), omit schema to get t
+- add_layer_from_connection: Load a table from a saved connection as a project layer. Pass table (+ schema), or sql to build a query layer 
+- import_layer_to_connection: Write a loaded vector layer into a saved connection as a new table (PostgreSQL, GeoPackage, ...). Fails if the
+- execute_connection_sql: Run SQL directly on the database behind a saved connection (server-side, not a virtual layer - use execute_sql
+- add_web_layer: Add a web layer (XYZ, WMS, WFS) to the project. service: 'xyz', 'wms', 'wfs'. crs is optional and only meaning
+- add_table_join: Add a table join to a vector layer.
+- add_field: Add a new field to a vector layer. field_type: 'string', 'int', 'double', 'bool', 'date', 'datetime'.
+- delete_field: Delete a field from a vector layer.
+- rename_field: Rename a field in a vector layer.
+- apply_style_qml: Apply a QGIS QML style to a layer, from a file (path) or inline QML text (qml); pass exactly one. Use it for s
+- save_style_qml: Save a layer's style to a QGIS QML file.
+- create_layout: Create a new print layout.
+- add_layout_map: Add a map item to a print layout at specified position and size (in millimeters).
+- get_layout_info: List items in a print layout (type, id, uuid, position, size) and page count.
+- add_layout_label: Add a text label to a print layout (mm). text may contain [% expression %] for dynamic content. color is hex (
+- add_layout_legend: Add a legend to a print layout, linked to a map item (defaults to the first map item). Position/size in mm.
+- add_layout_scalebar: Add a scale bar to a print layout, linked to a map item. style e.g. 'Single Box', 'Double Box', 'Line Ticks Up
+- add_layout_picture: Add a picture or SVG (logo, north arrow) to a print layout. path is an image or SVG file path. Position/size i
+- add_layout_table: Add an attribute table for a vector layer to a print layout. max_rows caps the number of features shown. Posit
+- configure_atlas: Configure a print layout's atlas: coverage_layer (vector layer id) drives one page per feature. Optional page_
+- export_atlas: Export a configured atlas. format 'pdf' writes a single multi-page file at output_path; image formats ('png','
+- remove_layout: Remove a print layout from the project.
+- execute_sql: SQL across loaded layers via a virtual layer; reference layers by name in FROM/JOIN. as_layer=True registers t
+- evaluate_expression: Evaluate a standalone QGIS expression to a scalar value (e.g. aggregate('layer','sum','field'), @project_var, 
+- identify_features: Identify features at a point [x, y] across layers (map-click analogue). The point and tolerance are in crs whe
+- duplicate_layer: Duplicate a layer (including its style) under a new name.
+- set_layer_order: Reorder layer tree nodes; tree order is draw order. layer_ids is the ordered list of layer ids from top (drawn

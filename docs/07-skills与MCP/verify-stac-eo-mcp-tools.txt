@@ -1,0 +1,15 @@
+2026-11-13 22:46:38,161 INFO stac_eo_mcp: stac-eo-mcp 0.1.0 starting (catalog=planetary-computer, output_dir=/home/hatch/stac-eo-mcp-output)
+TOOLS_COUNT=5
+- list_collections: List the collections available in a STAC catalog, with a one-sentence description.
+
+    Use the returned ids a
+- search_scenes: Search scenes intersecting a bbox in a date range, newest first.
+
+    Returns id, date, cloud cover, a simplif
+- get_scene_details: Key metadata and the list of assets (bands, previews, metadata files) of one scene.
+- compute_index: Compute NDVI, NDWI or NBR on one Sentinel-2 L2A scene, reading only the bbox window.
+
+    Clouds, shadows and 
+- time_series: Mean of an index over a bbox for each Sentinel-2 acquisition date in a range.
+
+    One scene per day, cloudy d

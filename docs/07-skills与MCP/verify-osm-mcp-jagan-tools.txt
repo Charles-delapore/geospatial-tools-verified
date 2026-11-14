@@ -1,0 +1,51 @@
+[11/13/26 23:12:30] INFO     Processing request of type            server.py:733
+                             ListToolsRequest                                   
+TOOLS_COUNT=12
+- geocode_address: 
+    Convert an address or place name to geographic coordinates with detailed location information.
+    
+    T
+- reverse_geocode: 
+    Convert geographic coordinates to a detailed address and location description.
+    
+    This tool takes a
+- find_nearby_places: 
+    Discover points of interest and amenities near a specific location.
+    
+    This tool performs a compreh
+- get_route_directions: 
+    Calculate detailed route directions between two geographic points.
+    
+    This tool provides comprehens
+- search_category: 
+    Search for specific types of places within a defined geographic area.
+    
+    This tool allows targeted 
+- suggest_meeting_point: 
+    Find the optimal meeting place for multiple people coming from different locations.
+    
+    This tool ca
+- explore_area: 
+    Generate a comprehensive profile of an area including all amenities and features.
+    
+    This powerful 
+- find_schools_nearby: 
+    Locate educational institutions near a specific location, filtered by education level.
+    
+    This spec
+- analyze_commute: 
+    Perform a detailed commute analysis between home and work locations.
+    
+    This advanced tool analyzes
+- find_ev_charging_stations: 
+    Locate electric vehicle charging stations near a specific location.
+    
+    This specialized search tool
+- analyze_neighborhood: 
+    Generate a comprehensive neighborhood analysis focused on livability factors.
+    
+    This advanced anal
+- find_parking_facilities: 
+    Locate parking facilities near a specific location.
+    
+    This tool finds parking options (lots, garag

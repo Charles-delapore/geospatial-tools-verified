@@ -1,0 +1,35 @@
+
+
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│                                                                              │
+│                         ▄▀▀ ▄▀█ █▀▀ ▀█▀ █▀▄▀█ █▀▀ █▀█                        │
+│                         █▀  █▀█ ▄▄█  █  █ ▀ █ █▄▄ █▀▀                        │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                FastMCP 4.2.0                                 │
+│                            https://gofastmcp.com                             │
+│                                                                              │
+│                  🖥  Server:      FastMCP-5dd0, 4.2.0                         │
+│                  🚀 Deploy free: https://horizon.prefect.io                  │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+[11/13/26 22:40:04] INFO     Starting MCP server 'FastMCP-5dd0' transport.py:241
+                             with transport 'stdio'                             
+TOOLS_COUNT=11
+- get_root: Return the STAC root document for a catalog.
+- get_conformance: Return server conformance classes.
+- get_capabilities: Return a summary of STAC API capabilities.
+
+Maps conformance classes to human-readable capability names, makin
+- search_collections: Return a page of STAC collections.
+- get_collection: Fetch a single STAC Collection by id.
+- get_item: Get a specific STAC Item by collection and item ID.
+- search_items: Search for STAC items.
+- estimate_data_size: Estimate the data size for a STAC query.
+- get_queryables: Get the queryable properties for a specific STAC collection by its ID.
+- get_aggregations: Get aggregations for STAC items.
+- get_sensor_registry_info: Get information about the STAC sensor registry.

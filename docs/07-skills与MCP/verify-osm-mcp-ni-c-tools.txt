@@ -1,0 +1,13 @@
+osm-mcp: connected — routing via public OSRM/Valhalla
+TOOLS_COUNT=11
+- geocode: Converts a place name or address into coordinates using OpenStreetMap. Returns matching places with lat/lon, a
+- reverse_geocode: Converts coordinates into the nearest address or place name (Nominatim).
+- route: Calculates the real-world travel distance and time between two or more places, walking, driving or cycling, on
+- route_matrix: Computes travel times and distances from every origin to every destination in one call — ideal for comparing o
+- optimize_route: Finds the best order to visit a set of stops (traveling-salesman optimization) and returns the optimized itine
+- isochrone: Shows how far you can get from a place within a time or distance budget ("what is reachable in 15 minutes on f
+- find_nearby_pois: Finds points of interest near a location, sorted by distance. Category shortcuts: restaurant, cafe, bar, pub, 
+- poi_details: Fetches the full OpenStreetMap record of one element — all tags (opening hours, website, phone, …), coordinate
+- suggest_meeting_point: Suggests a fair place to meet for people starting from different locations: finds venues around the geographic
+- straight_line_distance: Great-circle ("as the crow flies") distance between two places. Instant and independent of any road network — 
+- map_link: Generates openstreetmap.org links to open in a browser: a marker link for a single place, or a directions link

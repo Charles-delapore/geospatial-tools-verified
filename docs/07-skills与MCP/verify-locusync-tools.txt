@@ -1,0 +1,76 @@
+PySAL not available. Spatial statistics tools will be disabled.
+Folium not available. Web map tools will be disabled.
+2026-11-13 22:55:46,055 - locusync.server - INFO - Starting LocuSync Server (transport=stdio)...
+2026-11-13 22:55:46,055 - locusync.server - INFO - Nominatim URL: https://nominatim.openstreetmap.org
+2026-11-13 22:55:46,055 - locusync.server - INFO - OSRM URL: https://router.project-osrm.org
+2026-11-13 22:55:46,056 - locusync.server - INFO - Tools: Geocoding, Geometry, Routing, Files, Raster, Visualization, Statistics
+
+
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│                                                                              │
+│                         ▄▀▀ ▄▀█ █▀▀ ▀█▀ █▀▄▀█ █▀▀ █▀█                        │
+│                         █▀  █▀█ ▄▄█  █  █ ▀ █ █▄▄ █▀▀                        │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                FastMCP 4.2.0                                 │
+│                            https://gofastmcp.com                             │
+│                                                                              │
+│                  🖥  Server:      LocuSync Server, 4.2.0                      │
+│                  🚀 Deploy free: https://horizon.prefect.io                  │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+[11/13/26 22:55:47] INFO     Starting MCP server 'LocuSync      transport.py:241
+                             Server' with transport 'stdio'                     
+TOOLS_COUNT=46
+- health: Return server health: per-tool metrics and cache statistics.
+- geocode: Convert an address to geographic coordinates (latitude/longitude).
+- reverse_geocode: Convert coordinates to an address (reverse geocoding).
+- batch_geocode: Geocode many addresses at once (deduplicated, rate-limited).
+- batch_reverse_geocode: Reverse geocode many [lat, lon] pairs at once (deduplicated, rate-limited).
+- distance: Calculate the distance between two geographic points.
+- buffer: Create a buffer zone around a geometry.
+- spatial_query: Perform spatial operations between two geometries.
+- transform_crs: Transform coordinates between coordinate reference systems.
+- centroid: Get the centroid (center point) of a geometry.
+- simplify: Simplify a geometry using Douglas-Peucker algorithm.
+- convex_hull: Get the convex hull of a geometry.
+- envelope: Get the bounding box (envelope) of a geometry.
+- validate: Validate a geometry and fix it if invalid.
+- area: Calculate the area of a polygon geometry in multiple units.
+- length: Calculate the length/perimeter of a geometry.
+- utm_zone: Get the UTM zone for a given coordinate.
+- crs_info: Get detailed information about a coordinate reference system.
+- route: Calculate a route between two points.
+- isochrone: Calculate an isochrone (area reachable within a time limit).
+- distance_matrix: Compute a full duration+distance matrix between points (OSRM table).
+- elevation: Get elevation for a single point (meters above sea level).
+- elevation_profile: Get elevation profile along a line.
+- read_file: Read a geospatial file (GeoJSON, Shapefile, GeoPackage, etc.).
+- write_file: Write features to a geospatial file.
+- spatial_join: Perform a spatial join between two feature collections.
+- clip: Clip features to a boundary geometry.
+- dissolve: Dissolve features, optionally by a property.
+- overlay: Perform overlay operation between two feature collections.
+- merge: Merge multiple feature collections into one.
+- read_raster: Read a raster file and return metadata and statistics.
+- ndvi: Calculate NDVI (Normalized Difference Vegetation Index).
+- hillshade: Calculate hillshade from a Digital Elevation Model.
+- slope: Calculate slope from a Digital Elevation Model.
+- zonal_stats: Calculate zonal statistics for a raster using vector zones.
+- reproject_raster: Reproject a raster to a different CRS.
+- raster_calc: Perform raster algebra using a mathematical expression.
+- static_map: Create a static map image from GeoJSON features (requires matplotlib).
+- web_map: Create an interactive web map (requires folium).
+- choropleth_map: Create a choropleth (thematic) map based on a property value.
+- moran_i: Calculate Global Moran's I for spatial autocorrelation (requires libpysal).
+- local_moran: Calculate Local Moran's I (LISA) for cluster detection.
+- hotspot_analysis: Perform Getis-Ord Gi* hot spot analysis.
+- spatial_weights: Create and analyze a spatial weights matrix.
+- postgis_query: Run a read-only spatial SQL query against PostGIS.
+
+Wrap geometry columns in ST_AsGeoJSON(geom) to get GeoJSON
+- postgis_tables: List spatial tables registered in the PostGIS geometry_columns view.
