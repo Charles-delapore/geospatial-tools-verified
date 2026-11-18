@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this audit or the index, cite this repository."
+title: "Verified geospatial Python tools: 133-tool audit and six-domain surveys"
+abstract: "A reproducible audit of geospatial Python tools: six domain surveys, hands-on verification logs, journal-figure checks and a revival assessment of inactive projects."
+authors:
+  - family-names: "tianchunzhong"
+    alias: "Charles-delapore"
+version: "1.0.0"
+date-released: "2026-11-14"
+repository-code: "https://github.com/Charles-delapore/geospatial-tools-verified"
+url: "https://github.com/Charles-delapore/geospatial-tools-verified"
+keywords:
+  - geospatial
+  - python
+  - reproducibility
+  - tool audit
