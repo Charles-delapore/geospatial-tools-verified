@@ -143,9 +143,9 @@ stars 为 GitHub API 快照值；“最近更新”优先写本地克隆的最�
 
 **出图评价**：
 
-![图 1：28 个仓库 stars 对数条形图](figures/fig1_stars.png)
+![图 1：28 个仓库 stars 对数条形图](fig1_stars.png)
 
-![图 2：r2sfca 合成网格 2SFCA 可达性热力图](figures/fig2_r2sfca_synthetic.png)
+![图 2：r2sfca 合成网格 2SFCA 可达性热力图](fig2_r2sfca_synthetic.png)
 
 - 图 1（`figures/fig1_stars.png`）：28 个 GitHub 仓库 stars 对数条形图（快照 2026-11-14；r2sfca 与 ejscreen 404，无 stars 值未列入）。**评价**：OTP（2776）断层领先，次高 pandana（432）仅为其约 1/6；中段 100–450 星的 9 个项目为可达性引擎主力；14 个项目不足 30 星，其中 2 个为 0 星——stars 分布极不均衡，不能只看头部。局限：stars 只反映关注度，不反映质量与适用性。
 - 图 2（`figures/fig2_r2sfca_synthetic.png`）：r2sfca 在合成 10×10 网格上的 2SFCA 可达性热力图（β=0.1，3 个设施标红星，供给量 100/60/80）。**评价**：可达性高值区围绕设施呈距离衰减分布，设施 s=100 所在格（2,2）为全局最高 0.0056，边缘格最低 0.0015，符合 2SFCA 预期；验证了 r2sfca 在合成数据上能正确跑出空间分异。局限：合成网格、欧氏距离、均匀需求，非真实城市数据，不可外推为任何城市的结论。
@@ -178,7 +178,7 @@ stars 为 GitHub API 快照值；“最近更新”优先写本地克隆的最�
 
 > **抽样方法**：四个期刊各抽样 3 篇 2024–2026 年相关文章，共 12 篇（见图 3）。优先开放获取、能看到全文和图的文章；全文级指读到全文 PDF/HTML 并核对方法与图注，摘要/记录级指仅读到摘要或书目记录页。只记录方法与风格层面的观察，不复制原文大段文字或图片；引用给文章标题与 DOI 链接。
 >
-> ![图 3：期刊标杆抽样构成](figures/fig3_journal_sample.png)
+> ![图 3：期刊标杆抽样构成](fig3_journal_sample.png)
 >
 > **图 3 评价**：12 篇抽样按阅读深度分布。Nature Human Behaviour 3 篇均为全文级；Journal of Transport Geography 2 篇全文级、1 篇摘要级；Applied Geography 1 篇全文级、1 篇部分全文、1 篇摘要级；Health & Place 3 篇均为摘要级——该刊 2024–2025 年相关论文多为 Elsevier 付费墙，本次未找到 OA 全文，这是本节明确的方法局限：Health & Place 的图幅观察缺失，相关结论只来自其余三刊的全文样本。
 

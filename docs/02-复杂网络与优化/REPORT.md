@@ -74,7 +74,7 @@
 - EasyGraph 实测为 `--no-deps` 安装 + 补装 fastjsonschema、tqdm 后的基础图功能；官方全量依赖含 PyTorch（README 要求 1.12.1 ≤ torch < 2.0）与 numpy<2，本次未全量安装（见 6.3）。
 - scikit-network：PyPI 最新 0.33.5，但 pip 在本环境解析为 0.33.0；实测版本以 0.33.0 为准。
 
-![各项目 GitHub 星数（2026-11-14 快照，对数轴）](figures/stars-2026-11-14.png)
+![各项目 GitHub 星数（2026-11-14 快照，对数轴）](stars-2026-11-14.png)
 
 > 图 1：28 个项目中 26 个有 GitHub 星数的分布（graph-tool 与 TAU 无星数，未入图）。PyTorch Geometric 与 NetworkX 断层领先；可视化库 sigma.js、Cytoscape.js 紧随其后；时序/高阶新项目（NetworkX-Temporal 20、Reticula 26、pandarm 25）星数仍很小。
 
@@ -118,7 +118,7 @@ Gephi、Gephi Lite、sigma.js、Cytoscape.js、vis-network 共 5 个。**Gephi**
 - **局限**：纯 Python 实现，大规模图（百万边以上）性能明显弱于 igraph / NetworKit / rustworkx；3.x 要求 Python 3.10+。
 - **安装难度**：低，`pip install networkx` 即可。
 
-![Karate 图 Louvain 社区划分（NetworkX 3.7 实测，spring 布局，seed=42）](figures/karate-louvain-networkx.png)
+![Karate 图 Louvain 社区划分（NetworkX 3.7 实测，spring 布局，seed=42）](karate-louvain-networkx.png)
 
 > 图 2：实测输出。4 个社区分别着色，节点编号标注。注意：同一算法在不同库中划分略有差异（igraph+Leiden 得 [5,6,11,12]，Infomap 得 [5,11,18]），比较研究应固定算法与随机种子并报告模块度。
 
