@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 """Check relative links in every report and index."""
 
 from __future__ import annotations
@@ -9,13 +9,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
+ROOT_README = ROOT / "README.md"
 LINK = re.compile(r"\]\(([^)]+)\)")
 
 
 def main() -> int:
     missing = []
     total = 0
-    for path in sorted(DOCS.rglob("*.md")):
+    for path in [ROOT_README, *sorted(DOCS.rglob("*.md"))]:
         text = path.read_text(encoding="utf-8")
         for target in LINK.findall(text):
             if target.startswith(("http://", "https://", "mailto:", "#",
@@ -36,3 +37,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
