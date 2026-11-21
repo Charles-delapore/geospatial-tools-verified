@@ -3,38 +3,51 @@
 
 from __future__ import annotations
 
+import argparse
 import re
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DOCS = ROOT / "docs"
-ROOT_README = ROOT / "README.md"
 LINK = re.compile(r"\]\(([^)]+)\)")
 
 
-def main() -> int:
+def files(root: Path) -> list[Path]:
+    out = []
+    readme = root / "README.md"
+    if readme.exists():
+        out.append(readme)
+    out.extend(sorted((root / "docs").rglob("*.md")))
+    return out
+
+
+def check(root: Path) -> list[str]:
     missing = []
-    total = 0
-    for path in [ROOT_README, *sorted(DOCS.rglob("*.md"))]:
+    for path in files(root):
         text = path.read_text(encoding="utf-8")
         for target in LINK.findall(text):
             if target.startswith(("http://", "https://", "mailto:", "#",
                                   "sandbox://")):
                 continue
-            total += 1
             resolved = (path.parent / target.split("#", 1)[0]).resolve()
             if not resolved.exists():
-                missing.append(f"{path.relative_to(ROOT)} -> {target}")
+                missing.append(f"{path.relative_to(root)} -> {target}")
+    return missing
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--root", type=Path, default=ROOT)
+    args = parser.parse_args()
+    missing = check(args.root)
     if missing:
         print("broken links:")
         for item in missing:
             print("  -", item)
         return 1
-    print(f"doc links ok ({total} relative links)")
+    print("doc links ok")
     return 0
 
 
 if __name__ == "__main__":
     sys.exit(main())
-
